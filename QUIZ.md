@@ -71,9 +71,11 @@ Do not reveal whether an individual answer is correct or incorrect while the rou
 
 Do not explain an answer immediately after I submit it.
 
-Record my answer and continue.
+Immediately after I submit each answer — whether through the interactive widget or typed text — silently record, in your own working memory, the exact question, my exact submitted answer, and its correctness. Do this before presenting the next question.
 
-After all 10 questions have been answered, grade the entire round.
+Treat this per-question record as the authoritative source for grading and for the write protocol in `AGENTS.md`. Do not wait until the round ends and try to reconstruct my answers from the interactive widget's own state: that state is not guaranteed to still be available to you once I interact with any further control the widget provides.
+
+After all 10 questions have been answered, grade the entire round using this record.
 
 ## 3. Starting Level
 
@@ -405,6 +407,8 @@ If I say something equivalent to:
 - `Keep going`
 
 begin the next 10-question round using the difficulty and weakness information established so far.
+
+If the interactive quiz widget offers its own control to start a new round (for example, a "Next quiz" button) and I use it before you have presented end-of-round results for the round that just finished, treat that the same as `Continue`, but do not skip ahead: first grade the finished round using the per-question record from section 2, present the end-of-round results, and — when repository access is available — complete the write protocol in `AGENTS.md` for that round. Only then begin the new round the widget's control requested.
 
 Do not ask me to repeat the Topic, Level, or previous results.
 
