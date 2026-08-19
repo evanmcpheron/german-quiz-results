@@ -44,7 +44,7 @@ Do not create one file per quiz. Do not maintain one unbounded multi-year JSON f
 
 The user is not expected to maintain this repository manually. AI agents managing quizzes should read `AGENTS.md` before changing tracker data.
 
-`QUIZ.md` is the quiz behavior prompt. The bootstrap copy is the version supplied before repository integration; it can later be replaced with a repository-aware version.
+`QUIZ.md` is the quiz behavior prompt. It is repository-aware: it follows the read order and write protocol defined in `AGENTS.md`, and per `AGENTS.md`'s write scope, `QUIZ.md` itself is never a write target.
 
 ## Validation
 

@@ -37,6 +37,29 @@ After all 10 questions are graded:
 
 If an update fails midway, the JSONL log is authoritative. Repair derived files from the log rather than changing historical evidence.
 
+## Write scope
+
+The assessment agent may create or modify only the following paths:
+
+- `data/quiz-results/YYYY/YYYY-MM.jsonl` — new monthly quiz-log files, created and appended to per the write protocol above.
+- `data/learner-state.json`
+- `data/concept-registry.json`
+- `data/issue-index.json`
+- GitHub Issues, via the GitHub API, per the weakness policy in `config/tracking-policy.json`.
+
+Every other file in this repository is read-only from the assessment agent's perspective, including but not limited to:
+
+- `QUIZ.md`
+- `AGENTS.md`
+- `README.md`
+- `manifest.json`
+- everything under `config/`
+- everything under `schemas/`
+- everything under `tools/`
+- everything under `.github/`
+
+Never create, modify, or patch any of these files as part of recording a quiz result. If a change to one of these files genuinely seems necessary, stop and ask the learner instead of writing to it.
+
 ## Data integrity rules
 
 - Historical quiz records are append-only.
