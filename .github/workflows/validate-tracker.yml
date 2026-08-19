@@ -9,6 +9,7 @@ on:
       - "data/**"
       - "schemas/**"
       - "tools/validate_tracker.py"
+      - "tools/check_write_scope.py"
       - ".github/workflows/validate-tracker.yml"
   pull_request:
     paths:
@@ -17,6 +18,7 @@ on:
       - "data/**"
       - "schemas/**"
       - "tools/validate_tracker.py"
+      - "tools/check_write_scope.py"
       - ".github/workflows/validate-tracker.yml"
 
 permissions:
@@ -27,7 +29,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
       - run: python tools/validate_tracker.py
+      - name: Check write scope (advisory)
+        env:
+          BASE_SHA: ${{ github.event_name == 'pull_request' && github.event.pull_request.base.sha || github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: python tools/check_write_scope.py
