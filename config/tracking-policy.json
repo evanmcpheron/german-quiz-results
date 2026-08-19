@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0.0",
+  "quiz": {
+    "scored_questions_per_round": 10,
+    "difficulty_pass_score": 9,
+    "remain_same_difficulty_max_score": 8
+  },
+  "weakness_tracking": {
+    "candidate_after_any_relevant_miss": true,
+    "open_github_issue_when": {
+      "missed_in_separate_rounds": 2,
+      "within_most_recent_rounds": 5
+    },
+    "close_github_issue_when": {
+      "minimum_subsequent_targeted_rounds": 2,
+      "minimum_subsequent_targeted_attempts": 4,
+      "minimum_subsequent_accuracy": 0.8,
+      "most_recent_targeted_round_must_have_no_misses": true
+    }
+  },
+  "state": {
+    "recent_quiz_ids_to_keep": 25,
+    "recent_concept_attempts_to_keep": 20
+  },
+  "logging": {
+    "partition": "monthly",
+    "path_template": "data/quiz-results/{YYYY}/{YYYY-MM}.jsonl",
+    "append_only": true
+  }
+}

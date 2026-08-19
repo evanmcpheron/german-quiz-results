@@ -1,0 +1,33 @@
+
+name: Validate tracker data
+
+on:
+  push:
+    paths:
+      - "manifest.json"
+      - "config/**"
+      - "data/**"
+      - "schemas/**"
+      - "tools/validate_tracker.py"
+      - ".github/workflows/validate-tracker.yml"
+  pull_request:
+    paths:
+      - "manifest.json"
+      - "config/**"
+      - "data/**"
+      - "schemas/**"
+      - "tools/validate_tracker.py"
+      - ".github/workflows/validate-tracker.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - run: python tools/validate_tracker.py

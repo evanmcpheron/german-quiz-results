@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "learner-state.schema.json",
+  "title": "German Learner State",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "last_updated",
+    "broad_demonstrated_level",
+    "topics",
+    "concepts",
+    "recent_quiz_ids",
+    "next_recommended_focus"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "last_updated": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "broad_demonstrated_level": {
+      "type": "string"
+    },
+    "topics": {
+      "type": "object"
+    },
+    "concepts": {
+      "type": "object"
+    },
+    "recent_quiz_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "next_recommended_focus": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": false
+}

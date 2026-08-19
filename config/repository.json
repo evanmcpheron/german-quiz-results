@@ -1,0 +1,8 @@
+{
+  "schema_version": "1.0.0",
+  "repository_full_name": null,
+  "default_timezone": "America/New_York",
+  "managed_by": "ChatGPT",
+  "user_manual_edits_expected": false,
+  "notes": "Set repository_full_name after the user provides the GitHub owner/repository name."
+}

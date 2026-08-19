@@ -1,0 +1,56 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "issue-index.schema.json",
+  "title": "GitHub Learning Issue Index",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "issues_by_concept"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "string"
+    },
+    "issues_by_concept": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "issue_number",
+          "status",
+          "opened_at"
+        ],
+        "properties": {
+          "issue_number": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "status": {
+            "enum": [
+              "open",
+              "closed"
+            ]
+          },
+          "opened_at": {
+            "type": "string",
+            "minLength": 1
+          },
+          "closed_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "last_updated": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

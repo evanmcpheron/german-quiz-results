@@ -1,0 +1,12 @@
+{
+  "tracker_name": "German Quiz Tracker",
+  "schema_version": "1.0.0",
+  "created_at": "2026-08-19T09:53:00-04:00",
+  "storage_model": {
+    "authoritative_history": "data/quiz-results/YYYY/YYYY-MM.jsonl",
+    "current_state_cache": "data/learner-state.json",
+    "concept_registry": "data/concept-registry.json",
+    "github_issue_index": "data/issue-index.json"
+  },
+  "repository_management": "AI-managed; user is not expected to edit tracker files manually."
+}
